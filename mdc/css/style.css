@@ -1,0 +1,160 @@
+body {
+    margin: 0;
+    background-color: #000;
+    font-family: Regular;
+}
+header {
+    position: fixed;
+    height: 100px;
+    width: calc(100% - 30px);
+    line-height: 100px;
+    font-size: 25px;
+    background-image: url(../img/logo-temp.png);
+    background-repeat: no-repeat;
+    background-size: auto 60%;
+    background-position: right 30px center;
+    color: #fff;
+    left: 30px;
+    font-family: Black;
+}
+section {
+    position: absolute;
+    padding-left: 30px;
+    background-color: #fff;
+    width: calc(100% - 30px);
+    min-height: calc(100vh - 100px);
+    top: 100px;
+    border-radius: 20px 20px 0 0;
+}
+section .name {
+    font-size: 20px;
+    font-family: 'Black';
+    height: 75px;
+    line-height: 85px;
+    position: relative;
+}
+.name .add {
+    position: absolute;
+    margin: auto;
+    right: 12px;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    font-size: 21px;
+}
+section .item {
+    height: 259px;
+    position: relative;
+}
+.item .content {
+    background-color: #000;
+    color: #fff;
+    width: calc(100% - 122px);
+    border-radius: 15px;
+    padding: 25px 25px 10px 25px;
+}
+.content .session {
+    padding-bottom: 32px;
+}
+.session .title {
+    font-size: 16px;
+    padding-bottom: 5px;
+    font-family: Bold;
+}
+.title span {
+    margin-right: 6px;
+    font-size: 16px;
+}
+.session .data {
+    position: relative;
+    font-size: 13px;
+    font-family: monospace;
+}
+.data div {
+    position: absolute;
+}
+.data .left {
+    left: 0;
+}
+.data .right {
+    right: 0;
+}
+.data .card-number {
+    width: 155px;
+}
+.data .expiring-date {
+    width: 45px;
+    text-align: center;
+    margin: auto;
+    left: 119px;
+}
+.data .cvc {
+    width: 35px;
+    text-align: right;
+}
+.data .account {
+    width: 66px;
+}
+.data .agency {
+    margin: auto;
+    left: -11px;
+    width: 96px;
+    text-align: center;
+}
+.data .bank {
+    right: 0;
+    text-align: right;
+    width: 76px;
+}
+.data .light {
+    font-family: Light;
+    opacity: 0.6;
+}
+.item .options {
+    position: absolute;
+    width: 60px;
+    height: 80%;
+    text-align: center;
+    margin: auto;
+    right: 12px;
+    bottom: 0;
+    top: 0;
+    font-size: 21px;
+}
+.options div {
+    height: 60px;
+    line-height: 60px;
+    position: absolute;
+    width: 60px;
+}
+.options .copy {
+    top: 0;
+}
+.options .edit {
+    margin: auto;
+    top: 0;
+    bottom: 0;
+}
+.options .delete {
+    bottom: 0;
+}
+.item .id {
+    padding-top: 10px;
+}
+.id .card-name {
+    font-family: Bold;
+}
+.id img {
+    width: 19px;
+}
+.id .card-day {
+    color: #979797;
+    font-size: 14px;
+    padding-left: 15px;
+}
+.icon-point {
+    font-size: 8px;
+    position: relative;
+}
