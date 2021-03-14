@@ -67,10 +67,12 @@ section .item {
     margin-right: 6px;
     font-size: 16px;
 }
+.data .number {
+    font-family: 'Oswald', sans-serif;
+}
 .session .data {
     position: relative;
     font-size: 13px;
-    font-family: monospace;
 }
 .data div {
     position: absolute;
@@ -81,7 +83,7 @@ section .item {
 .data .right {
     right: 0;
 }
-.data .card-number {
+.data .card.number {
     width: 155px;
 }
 .data .expiring-date {
@@ -108,9 +110,10 @@ section .item {
     text-align: right;
     width: 76px;
 }
-.data .light {
-    font-family: Light;
-    opacity: 0.6;
+.data i {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 200;
+    font-style: normal;
 }
 .item .options {
     position: absolute;
@@ -121,7 +124,7 @@ section .item {
     right: 12px;
     bottom: 0;
     top: 0;
-    font-size: 21px;
+    font-size: 19px;
 }
 .options div {
     height: 60px;
@@ -143,13 +146,13 @@ section .item {
 .item .id {
     padding-top: 10px;
 }
-.id .card-name {
+.id .card.name {
     font-family: Bold;
 }
 .id img {
     width: 19px;
 }
-.id .card-day {
+.id .card.day {
     color: #979797;
     font-size: 14px;
     padding-left: 15px;
