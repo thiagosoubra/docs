@@ -1,0 +1,56 @@
+@font-face {
+    font-family: 'Black';
+    src: url('../fonts/Black.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'ExtraBold';
+    src: url('../fonts/ExtraBold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Bold';
+    src: url('../fonts/Bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Regular';
+    src: url('../fonts/Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Light';
+    src: url('../fonts/Light.ttf') format('truetype');
+}
+
+
+@font-face {
+    font-family: "icon";
+    src: url("../fonts/icons.eot");
+    src: url("../fonts/icons.eot?#iefix") format("embedded-opentype"),
+         url("../fonts/icons.woff2") format("woff2"),
+         url("../fonts/icons.woff") format("woff"),
+         url("../fonts/icons.ttf") format("truetype"),
+         url("../fonts/icons.svg#icons") format("svg");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+      font-family: "icon";
+      src: url("../fonts/icons.svg#icons") format("svg");
+    }
+  }
+  
+  [class^="icon-"]:before, [class*=" icon-"]:before,
+  [class^="icon-"]:after, [class*=" icon-"]:after {   
+    font-family: icon;
+  font-style: normal;
+  }
+  
+  .icon-add:before { content: "\f100"; }
+  .icon-card-data:before { content: "\f101"; }
+  .icon-contact:before { content: "\f102"; }
+  .icon-passwords:before { content: "\f103"; }
+  .icon-bank-account:before { content: "\f104"; }
+  .icon-copy:before { content: "\f105"; }
+  .icon-edit:before { content: "\f106"; }
+  .icon-delete:before { content: "\f107"; }
+  .icon-point:before { content: "\f108"; position: absolute; top: 0;}
+  .icon-done:before { content: "\f109"; }
