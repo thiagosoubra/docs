@@ -52,5 +52,5 @@
   .icon-copy:before { content: "\f105"; }
   .icon-edit:before { content: "\f106"; }
   .icon-delete:before { content: "\f107"; }
-  .icon-point:before { content: "\f108"; position: absolute; top: 0;}
+  .icon-point:before { content: "\f108"; }
   .icon-done:before { content: "\f109"; }

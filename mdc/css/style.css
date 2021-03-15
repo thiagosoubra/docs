@@ -19,12 +19,16 @@ header {
 }
 section {
     position: absolute;
-    padding-left: 30px;
+    padding: 0 30px;
     background-color: #fff;
-    width: calc(100% - 30px);
+    width: calc(100% - 60px);
     min-height: calc(100vh - 100px);
     top: 100px;
     border-radius: 20px 20px 0 0;
+}
+section#items {
+    padding: 0 0 0 30px;
+    width: calc(100% - 30px);
 }
 section .name {
     font-size: 20px;
@@ -44,78 +48,59 @@ section .name {
     text-align: center;
     font-size: 21px;
 }
-section .item {
-    height: 259px;
+section #item {
+    position: relative;
+    margin-bottom: 20px;
+}
+section .content {
     position: relative;
 }
-.item .content {
+.content .sessions {
     background-color: #000;
     color: #fff;
     width: calc(100% - 122px);
     border-radius: 15px;
     padding: 25px 25px 10px 25px;
 }
-.content .session {
-    padding-bottom: 32px;
+.sessions .session {
+    position: relative;
+    clear: both;
+    overflow: hidden;
+    margin-bottom: 15px;
 }
-.session .title {
-    font-size: 16px;
-    padding-bottom: 5px;
-    font-family: Bold;
-}
-.title span {
-    margin-right: 6px;
-    font-size: 16px;
-}
-.data .number {
-    font-family: 'Oswald', sans-serif;
+.session span {
+    position: absolute;
+    font-size: 13px;
+    height: 13px;
+    line-height: 13px;
+    opacity: 0.7;
+    margin: auto;
+    top: 0;
+    bottom: 0;
 }
 .session .data {
     position: relative;
     font-size: 13px;
+    float: right;
+    width: calc(100% - 25px);
+    line-height: 20px;
 }
-.data div {
-    position: absolute;
+.session .line {
+    clear: both;
 }
-.data .left {
-    left: 0;
+.line .question {
+    float: left;
+    font-size: 10px;
+    opacity: 0.7;
 }
-.data .right {
-    right: 0;
-}
-.data .card.number {
-    width: 155px;
-}
-.data .expiring-date {
-    width: 45px;
-    text-align: center;
-    margin: auto;
-    left: 119px;
-}
-.data .cvc {
-    width: 35px;
-    text-align: right;
-}
-.data .account {
-    width: 66px;
-}
-.data .agency {
-    margin: auto;
-    left: -11px;
-    width: 96px;
-    text-align: center;
-}
-.data .bank {
-    right: 0;
-    text-align: right;
-    width: 76px;
+.line .answer {
+    float: right;
 }
 .data i {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 200;
+    font-family: Light;
     font-style: normal;
 }
-.item .options {
+#item .options {
     position: absolute;
     width: 60px;
     height: 80%;
@@ -143,21 +128,72 @@ section .item {
 .options .delete {
     bottom: 0;
 }
-.item .id {
-    padding-top: 10px;
+#item .id {
+    margin-top: 10px;
 }
-.id .card.name {
-    font-family: Bold;
+.id .card-name {
+    font-family: 'Bold';
 }
-.id img {
+.card-name img {
     width: 19px;
 }
-.id .card.day {
-    color: #979797;
+.id .card-day {
+    font-family: 'Light';
     font-size: 14px;
+    position: relative;
     padding-left: 15px;
 }
-.icon-point {
+.card-day span {
+    position: absolute;
     font-size: 8px;
-    position: relative;
+    height: 100%;
+    line-height: 16px;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+
+* {
+    transition: 3s;
+}
+section.add-card {
+    display: none;
+    top: 100vh;
+}
+section.add-card.up {
+    display: block;
+    top: 100px;
+}
+.add-card .session {
+    background-color: #000;
+    color: #fff;
+    border-radius: 25px;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    font-size: 12px;
+    font-family: 'Bold';
+}
+.session input {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    margin-top: 5px;
+}
+.add-card button {
+    background-color: #5b559c;
+    color: #fff;
+    border-radius: 25px;
+    padding: 15px 20px;
+    font-size: 12px;
+    font-family: 'Bold';
+    width: 100%;
+    margin: 20px 0;
+    border: navajowhite;
+}
+ul, li, #list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
