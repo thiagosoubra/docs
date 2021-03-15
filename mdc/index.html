@@ -7,56 +7,221 @@
     <title>My DataChecker</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         My DataChecker
     </header>
-    <section>
+    <section id="items">
         <div class="name">
             Cartões de crédito
             <div class="add"><span class="icon-add"></span></div>
         </div>
-        <div class="item">
-            <div class="content">
-                <div class="session">
-                    <div class="title"><span class="icon-card-data"></span>Dados do cartão</div>
-                    <div class="data">
-                        <div class="card number left">5162 9225 5602 2026</div><div class="expiring-date number right">10<i>/</i>28</div><div class="cvc number right">180</div>
-                    </div>
-                </div>
-                <div class="session">
-                    <div class="title"><span class="icon-contact"></span>Contato</div>
-                    <div class="data">
-                        <div class="email left">thiagosb.nubank<i>@</i></div><div class="phone number right"><i>83.9</i>9869<i>-</i>6640</div>
-                    </div>
-                </div>
-                <div class="session">
-                    <div class="title"><span class="icon-passwords"></span>Senhas</div>
-                    <div class="data">
-                        <div class="card password number left"><i>cartão </i><span id="card">0027</span></div><div class="app password number right"><i>app </i><span id="app">86283027</span></div>
-                    </div>
-                </div>
-                <div class="session">
-                    <div class="title"><span class="icon-bank-account"></span>Conta bancária</div>
-                    <div class="data">
-                        <div class="account number left">701155<i>-</i>6</div><div class="agency number right">0001</div><div class="bank number right"><i>banco</i> 260</div>
-                    </div>
-                </div>
-            </div>
-            <div class="options">
-                <div class="copy"><span class="icon-copy"></span></div>
-                <div class="edit"><span class="icon-edit"></span></div>
-                <div class="delete"><span class="icon-delete"></span></div>
-            </div>
-            <div class="id">
-                <div class="card-name">Nubank <img src="img/mastercard.png"></div>
-                <span class="icon-point"></span><span class="card-day">Dia 01</span>
-            </div>
+        <div id="item"></ul>
+    </section>
+    <section class="add-card">
+        <div class="name">Adicionar um cartão</div>
+        <div class="">
+            <div class="session">Nome do cartão<br>
+                <input type="text" id="cardname"></div>
+            <div class="session">Dia do vencimento (fatura)<br>
+                <input type="number" id="cardday"></div>
+            <div class="session">Número do cartão<br>
+                <input type="number" id="cardnumber"></div>
+            <div class="session">Validade<br>
+                <input type="number" id="expiringdate"></div>
+            <div class="session">CVC<br>
+                <input type="number" id="cvc"></div>
+            <div class="session">E-mail<br>
+                <input type="text" id="email"></div>
+            <div class="session">Número de telefone<br>
+                <input type="number" id="phone"></div>
+            <div class="session">Senha do cartão<br>
+                <input type="text" id="cardpass"></div>
+            <div class="session">Senha do aplicativo<br>
+                <input type="text" id="apppass"></div>
+            <div class="session">Conta Bancária<br>
+                <input type="number" id="bankaccount"></div>
+            <div class="session">Agência<br>
+                <input type="number" id="agency"></div>
+            <div class="session">Banco<br>
+                <input type="number" id="bank"></div>
+            <div class="session">Bandeira do cartão<br>
+                <input type="number" id="flag"></div>
+            
+            <button id="submit" type="submit">ADICIONAR</button>
         </div>
     </section>
+
+
+    <script type="text/javascript">
+        (function() {
+            var propertiesList = document.getElementById('item');
+            var cardname = document.getElementById('cardname');
+            var cardday = document.getElementById('cardday');
+            var cardnumber = document.getElementById('cardnumber');
+            var expiringdate = document.getElementById('expiringdate');
+            var cvc = document.getElementById('cvc');
+            var email = document.getElementById('email');
+            var phone = document.getElementById('phone');
+            var cardpass = document.getElementById('cardpass');
+            var apppass = document.getElementById('apppass');
+            var bankaccount = document.getElementById('bankaccount');
+            var agency = document.getElementById('agency');
+            var bank = document.getElementById('bank');
+            var flag = document.getElementById('flag');
+        
+            var myProperties;
+            var obj;
+            // get submit button and add event handler
+            var submit = document.getElementById('submit');
+            submit.addEventListener('click', addToLocalStorage, false);
+            // if data, get data from localStorage and display on page load
+            if (window.localStorage.getItem('Cardname')) {
+                displayStorage();
+            }
+            // function to display localStorage contents on page load
+            function displayStorage() {
+                // setup empty data variable
+                var data = "";
+        
+                myProperties = JSON.parse(localStorage.getItem('Cardname'));
+                // if localStorage array is not empty
+                if (myProperties.length !== 0) {
+                    for (var i = 0; i < myProperties.length; i++) {
+                        var div = document.createElement('div');
+                        // set id and class on localStorage list
+                        div.setAttribute('id', myProperties[i].id);
+                        div.setAttribute('class', 'myProperties');
+                        // create content for div
+                        data += '<div class="content"><div class="sessions"> <div class="session"> <span class="icon-card-data"></span> <div class="data"> <div class="line card"> <div class="question">Nº</div> <div class="answer">' + myProperties[i].cardnumber + '</div> </div> <div class="line expiring-date"> <div class="question">VALIDADE</div> <div class="answer">' + myProperties[i].expiringdate + '</div> </div> <div class="line cvc"> <div class="question">CVC</div> <div class="answer">' + myProperties[i].cvc + '</div> </div> </div> </div> <div class="session"> <span class="icon-contact"></span> <div class="data"> <div class="line email"> <div class="question">E-MAIL</div> <div class="answer">' + myProperties[i].email + '</div> </div> <div class="line phone"> <div class="question">FONE</div> <div class="answer"><i>' + myProperties[i].phone + '</div> </div> </div> </div> <div class="session"> <span class="icon-passwords"></span> <div class="data"> <div class="line card-pass"> <div class="question">CARTÃO</div> <div class="answer">' + myProperties[i].cardpass + '</div> </div> <div class="line app-pass"> <div class="question">APLICATIVO</div> <div class="answer">' + myProperties[i].apppass + '</div> </div> </div> </div> <div class="session"> <span class="title icon-bank-account"></span> <div class="data"> <div class="line account"> <div class="question">CONTA</div> <div class="answer">' + myProperties[i].bankaccount + '</div> </div> <div class="line agency"> <div class="question">AGÊNCIA</div> <div class="answer">' + myProperties[i].agency + '</div> </div> <div class="line bank"> <div class="question">BANCO</div> <div class="answer">' + myProperties[i].bank + '</div> </div> </div> </div> </div> <div class="options"> <div class="copy"><span class="icon-copy"></span></div> <div class="edit view"><span class="icon-edit"></span></div> <div class="delete remove"><span class="icon-delete remove"></span></div> </div> </div> <div class="id"> <div class="card-name">' + myProperties[i].cardname + ' <img src="img/mastercard.png"></div> <div class="card-day"> <span class="icon-point"></span>Dia ' + myProperties[i].cardday + ' </div> </div>';
+                        
+                        div.innerHTML = data;
+                        data = '';
+                        propertiesList.appendChild(div);
+                    }
+                }
+                addListenerToLinks();
+            }
+        
+            function addToLocalStorage() {
+                // create empty object
+                obj = {};
+                // set id of obj to unique timestamp ( li )
+                // since we are only using one localStorage key
+                // we need to do this in order to identfy which object we are accessing
+                obj.id = Date.now();
+                // get value of user input
+                obj.cardname = cardname.value;
+                obj.cardday = cardday.value;
+                obj.cardnumber = cardnumber.value;
+                obj.expiringdate = expiringdate.value;
+                obj.cvc = cvc.value;
+                obj.email = email.value;
+                obj.phone = phone.value;
+                obj.cardpass = cardpass.value;
+                obj.apppass = apppass.value;
+                obj.bankaccount = bankaccount.value;
+                obj.agency = agency.value;
+                obj.bank = bank.value;
+                obj.flag = flag.value;
+                // either retrieve array from localStorage 
+                // or create empty array if localStorage is empty
+                myProperties = JSON.parse(localStorage.getItem('Cardname')) || [];
+                // add obj to end of array
+                myProperties.push(obj);
+                // add modified array back into localStorage
+                localStorage.setItem('Cardname', JSON.stringify(myProperties));
+                // call addToPropertiesList() to display recently added property
+                addToPropertiesList();
+            }
+        
+            function addToPropertiesList() {
+                // access the last item in the myProperties array
+                // this is the one we just created
+                var len = myProperties.length - 1;
+                var div = document.createElement('div');
+                // add id and class to div
+                div.setAttribute('id', myProperties[len].id);
+                div.setAttribute('class', 'myProperties');
+                // create content of <div>
+                var data = '';
+                data += '<div class="content"><div class="sessions"><div class="session"> <span class="icon-card-data"></span> <div class="data"> <div class="line card"> <div class="question">Nº</div> <div class="answer">' + myProperties[len].cardnumber + '</div> </div> <div class="line expiring-date"> <div class="question">VALIDADE</div> <div class="answer">' + myProperties[len].expiringdate + '</div> </div> <div class="line cvc"> <div class="question">CVC</div> <div class="answer">' + myProperties[len].cvc + '</div> </div> </div> </div> <div class="session"> <span class="icon-contact"></span> <div class="data"> <div class="line email"> <div class="question">E-MAIL</div> <div class="answer">' + myProperties[len].email + '</div> </div> <div class="line phone"> <div class="question">FONE</div> <div class="answer"><i>' + myProperties[len].phone + '</div> </div> </div> </div> <div class="session"> <span class="icon-passwords"></span> <div class="data"> <div class="line card-pass"> <div class="question">CARTÃO</div> <div class="answer">' + myProperties[len].cardpass + '</div> </div> <div class="line app-pass"> <div class="question">APLICATIVO</div> <div class="answer">' + myProperties[len].apppass + '</div> </div> </div> </div> <div class="session"> <span class="title icon-bank-account"></span> <div class="data"> <div class="line account"> <div class="question">CONTA</div> <div class="answer">' + myProperties[len].bankaccount + '</div> </div> <div class="line agency"> <div class="question">AGÊNCIA</div> <div class="answer">' + myProperties[len].agency + '</div> </div> <div class="line bank"> <div class="question">BANCO</div> <div class="answer">' + myProperties[len].bank + '</div> </div> </div> </div> </div> <div class="options"> <div class="copy"><span class="icon-copy"></span></div> <div class="edit view"><span class="icon-edit"></span></div> <div class="delete remove"><span class="icon-delete"></span></div> </div> </div> <div class="id"> <div class="card-name">' + myProperties[len].cardname + ' <img src="img/mastercard.png"></div> <div class="card-day"> <span class="icon-point"></span>Dia ' + myProperties[len].cardday + ' </div> </div>';
+        
+                // add content to <div>
+                div.innerHTML = data;
+                // append <div> to propertiesList(declared under variables)
+                propertiesList.appendChild(div);
+                // add event listener to remove and view
+                addListenerToLinks();
+            }
+        
+            function addListenerToLinks() {
+                var removeLinks = document.getElementsByClassName('remove');
+                var viewLinks = document.getElementsByClassName('view');
+        
+                for (var i = 0; i < removeLinks.length; i++) {
+                    var removeLink = removeLinks[i];
+                    var viewLink = viewLinks[i];
+        
+                    removeLink.onclick = removeProperty;
+                    viewLink.onclick = viewProperty;
+                }
+            }
+        
+            function removeProperty() {
+                // get the id of the <li> via the click on span.remove
+                var id = this.parentNode.parentNode.parentNode.parentNode.getAttribute('id');
+                // get local storage object
+                var json = JSON.parse(localStorage.Cardname);
+                // loop through localStorage  object
+                for (var i = 0; i < json.length; i++) {
+                    // if item localStorage is equal to id of click element
+                    if (json[i].id == id) {
+                        // remove element from localStorage array
+                        json.splice(i, 1);
+                        // put array back into locaStorage
+                        localStorage.Cardname = JSON.stringify(json);
+                        // remove <li> from list
+                        var elem = document.getElementById(id);
+                        elem.parentNode.removeChild(elem);
+                        // call clear inputs function
+                        clearInputs();
+                    }
+                }
+            }
+        
+            function viewProperty() {
+                // get the id of the <li> via the click on span.view
+                var id = this.parentNode.parentNode.parentNode.parentNode.getAttribute('id');
+                // get localStorage object
+                var json = JSON.parse(localStorage.Cardname);
+                // loop through localStorage object
+                for (var i = 0; i < json.length; i++) {
+                    // if localStorage id is equal to id of clicked element
+                    if (json[i].id == id) {
+                        // repopulate inputs with clicked address values
+                        cardname.value = json[i].cardname;
+                        cardday.value = json[i].cardday;
+                        cardnumber.value = json[i].cardnumber;
+                        expiringdate.value = json[i].expiringdate;
+                        cvc.value = json[i].cvc;
+                        email.value = json[i].email;
+                        phone.value = json[i].phone;
+                        cardpass.value = json[i].cardpass;
+                        apppass.value = json[i].apppass;
+                        bankaccount.value = json[i].bankaccount;
+                        agency.value = json[i].agency;
+                        bank.value = json[i].bank;
+                        flag.value = json[i].flag;
+                    }
+                }
+            }
+        }());
+        </script>
+
+
+    <script src="js/jquery2.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
 </html>
