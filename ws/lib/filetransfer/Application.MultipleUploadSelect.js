@@ -1,0 +1,1 @@
+FileTransfer.MultipleUploadSelect=Core.extend(FileTransfer.AbstractUploadSelect,{$load:function(){Echo.ComponentFactory.registerType("FileTransfer.MultipleUploadSelect",this);},componentType:"FileTransfer.MultipleUploadSelect"});
