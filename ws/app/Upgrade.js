@@ -1,0 +1,1 @@
+WS.Upgrade=Core.extend(WS.WorkspaceModule,{$construct:function(){this._updateRunnable=new Core.Web.Scheduler.MethodRunnable(Core.method(this,this._updateStatus),5000,false);this._r=WS.getResources();WS.WorkspaceModule.call(this,{children:[new WS.IFrame({src:"http://android.nextapp.com/websharing/upgrade/"})]});}});
