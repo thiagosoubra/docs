@@ -1,0 +1,1 @@
+Extras.ListViewer=Core.extend(Echo.Component,{$load:function(){Echo.ComponentFactory.registerType("Extras.ListViewer",this);},componentType:"Extras.ListViewer",pane:true,doAction:function(a){this.fireEvent({type:"action",source:this,index:a});}});
