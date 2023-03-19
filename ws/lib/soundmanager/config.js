@@ -1,0 +1,1 @@
+soundManager.setup({url:"/lib/soundmanager/",flashVersion:9,debugMode:false,preferFlash:true,onready:function(){}});
